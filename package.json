@@ -1,12 +1,15 @@
 {
-  "name"         : "letter-to-representative",
-  "version"      : "0.0.0",
-  "description"  : "Uses Lob API to send a letter",
-  "main"         : "server.js",
-  "author"       : "Cole Johnson",
-  "dependencies" : {
-    "express"    : "~4.7.2",
-	  "body-parser": "~1.5.2",
-	  "method-override": "~2.1.2"
+  "name": "letter-to-representative",
+  "version": "0.0.0",
+  "description": "Uses Lob API to send a letter",
+  "main": "server.js",
+  "author": "Cole Johnson",
+  "dependencies": {
+    "body-parser": "^1.5.2",
+    "express": "~4.7.2",
+    "lob": "^3.9.0",
+    "method-override": "~2.1.2",
+    "morgan": "^1.7.0",
+    "request": "^2.75.0"
   }
 }
