@@ -1,0 +1,99 @@
+body {
+    font-family: 'Questrial', sans-serif;
+}
+.clearfix {
+    overflow: auto;
+}
+.box-12 {
+    width: 100%;
+    display: inline-block;
+}
+.box-6 {
+    width: 49%;
+    display: inline-block;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+/********************
+      HEADER
+********************/
+header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid #425463;
+    background: #F7FAFC;
+}
+header h1 {
+    color: #425463;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+}
+header h2 {
+    color: #47B2E8;
+    margin-top: 5px;
+}
+
+/********************
+        FORM
+********************/
+.wrapper {
+    width: 400px;
+    margin: 0px auto;
+}
+.wrapper h3 {
+    padding: 10px 0px;
+    color: #47B2E8;
+}
+.wrapper input {
+    border-radius: 2px;
+    height: 35px;
+    font-size: 14px;
+    color: #555;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    margin: 5px 0px;
+    outline: none;
+}
+.wrapper input:focus {
+    border: 1px solid #176992;
+}
+.wrapper textarea {
+    width: 100%;
+    min-height: 300px;
+    max-width: 400px;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #555;
+    outline: none;
+}
+.wrapper textarea:focus {
+    border: 1px solid #176992;
+}
+.wrapper button {
+    background: #FCDD7C;
+    width: 150px;
+    height: 35px;
+    line-height: 33px;
+    margin: 10px 0px;
+    border: none;
+    border-radius: 2px;
+    color: #425463;
+    font-family: 'Questrial', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+.wrapper .button-wrapper {
+    text-align: center;
+}
+.wrapper button:hover {
+    background: #FBD04A;
+}
+/********************
+        NAME
+********************/
