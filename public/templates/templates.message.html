@@ -1,5 +1,51 @@
-<div class="wrapper">
-    {{message}}
-    {{response.name}}
-    <img src="{{response.photo}}" />
+<div class="message-wrapper">
+    <img src="{{response.photo}}" height="200px" width="auto" class="rep-image"/>
+
+    <div class="message-body">
+        <h3>Hi {{letter.firstName}},</h3>
+        <p>
+            You have successfully sent a letter to {{response.name}}
+            ({{response.title}}) using the Lob API.
+        </p>
+        <p>
+            Your letter said:
+        </p>
+        <p class="message">
+            {{letter.message}}
+        </p>
+        <div class="download-button-wrapper">
+            <button class="download-button">DOWNLOAD A COPY</button>
+        </div>
+        <p>
+            This letter is going to
+            <h4>{{response.lineOne}}</h4>
+            <h4>{{response.lineTwo}}</h4>
+            <h4>{{response.city}}, {{response.state}} {{response.zip}}</h4>
+        </p>
+
+        <p>
+            In the meantime, you can visit {{response.name}}'s website at
+            <a href="{{response.website}}">{{response.website}}</a>
+        </p>
+        <div class="social-wrapper">
+            <div class="social" ng-repeat="social in response.social">
+                <span ng-if="social.type == 'Twitter'">
+                    <a href="http://twitter.com/{{social.id}}">
+                        <i class="fa fa-twitter fa-lg"></i>
+                    </a>
+                </span>
+                <span ng-if="social.type == 'Facebook'">
+                    <a href="http://facebook.com/{{social.id}}">
+                        <i class="fa fa-facebook-official fa-lg"></i>
+                    </a>
+                </span>
+                <span ng-if="social.type == 'YouTube'">
+                    <a href="http://youtube.com/channel/{{social.id}}">
+                        <i class="fa fa-youtube fa-lg"></i>
+                    </a>
+                </span>
+            </div>
+        </div>
+
+    </div>
 </div>
