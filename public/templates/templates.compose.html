@@ -1,0 +1,20 @@
+<div class="wrapper">
+    <h3>Your Information</h3>
+    <input type="text" placeholder="First Name" ng-model="letter.firstName" class="box-12"/>
+    <input type="text" placeholder="Last Name" ng-model="letter.lastName" class="box-12"/>
+    <input type="text" placeholder="Address Line 1" ng-model="letter.lineOne" class="box-12"/>
+    <input type="text" placeholder="Address Line 2" ng-model="letter.lineTwo" class="box-12"/>
+    <div class="clearfix">
+        <input type="text" placeholder="City" ng-model="letter.city" class="box-6 left"/>
+        <input type="text" placeholder="State" ng-model="letter.state" class="box-6 right"/>
+    </div>
+</div>
+<div class="wrapper">
+    <h3>Your Message</h3>
+    <textarea ng-model="letter.message"></textarea>
+</div>
+<div class="wrapper">
+    <div class="button-wrapper" >
+        <button type="button" ng-click="confirm()">CONFIRM</button>
+    </div>
+</div>

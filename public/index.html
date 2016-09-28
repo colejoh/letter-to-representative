@@ -1,6 +1,7 @@
 <html ng-app="letterToRep">
     <head>
         <meta charset="utf-8">
+        <title>Send a Letter To Your Representative</title>
         <!-- CSS -->
         <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
         <link rel="stylesheet" href="css/html5.css" />
@@ -20,8 +21,9 @@
     </head>
     <body>
         <div ng-include="'templates/templates.header.html'"></div>
-        <div ng-include="'templates/templates.address.html'"></div>
-        <div ng-include="'templates/templates.message.html'"></div>
-        <div ng-include="'templates/templates.button.html'"></div>
+        <div ng-view>
+            
+        </div>
+        <!-- <div ng-include="'templates/templates.compose.html'"></div> -->
     </body>
 </html>

@@ -1,0 +1,24 @@
+<div class="wrapper">
+    <h3>Your Information</h3>
+    <h4>
+        {{letter.firstName}}
+        {{letter.lastName}}
+    </h4>
+    <h4>
+        {{letter.lineOne}}
+    </h4>
+    <h4>
+        {{letter.lineTwo}}
+    </h4>
+    <h4>
+        {{letter.city}},
+        {{letter.state}}
+    </h4>
+    <h3>Your Message</h3>
+    {{letter.message}}
+</div>
+<div class="wrapper">
+    <div class="button-wrapper">
+        <button ng-click="send()">SEND</button>
+    </div>
+</div>

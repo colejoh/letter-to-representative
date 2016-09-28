@@ -1,0 +1,11 @@
+<div ng-switch="letterState">
+    <div ng-switch-when="compose">
+        <div ng-include="'templates/templates.compose.html'"></div>
+    </div>
+    <div ng-switch-when="confirm">
+        <div ng-include="'templates/templates.confirm.html'"></div>
+    </div>
+    <div ng-switch-when="message">
+        <div ng-include="'templates/templates.message.html'"></div>
+    </div>
+</div>

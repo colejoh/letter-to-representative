@@ -44,6 +44,7 @@ header h2 {
 .wrapper {
     width: 400px;
     margin: 0px auto;
+    word-wrap: break-word;
 }
 .wrapper h3 {
     padding: 10px 0px;
@@ -87,13 +88,15 @@ header h2 {
     font-family: 'Questrial', sans-serif;
     font-weight: bold;
     font-size: 14px;
+    outline: none;
 }
 .wrapper .button-wrapper {
     text-align: center;
 }
 .wrapper button:hover {
     background: #FBD04A;
+    cursor: pointer;
 }
-/********************
-        NAME
-********************/
+.wrapper h4 {
+    line-height: 1.6em;
+}
