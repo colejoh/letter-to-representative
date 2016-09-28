@@ -11,10 +11,11 @@ app.controller("mainCtrl", ['$scope', '$http', 'Letter',
       console.log($scope.letter);
     };
 
-    $scope.message = "failure"
+    $scope.message = "failure";
+    $scope.response;
     $scope.send = function() {
       $http.post('/api/', $scope.letter).success(function(data) {
-        console.log(data);
+        $scope.response = data;
         $scope.message = "Succsess";
       }).error(function(data) {
         $scope.message = "Failure"
