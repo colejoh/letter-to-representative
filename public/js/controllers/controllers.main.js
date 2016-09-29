@@ -21,19 +21,28 @@ app.controller("mainCtrl", ['$scope', '$http', 'Letter',
       console.log($scope.letter);
     };
 
-    $scope.message = "failure";
     $scope.response;
     $scope.send = function() {
       $http.post('/api/', $scope.letter).success(function(data) {
         $scope.response = data;
-        $scope.message = "Succsess";
+        if($scope.response.name === "StatusCodeError") {
+          $scope.letterState = "error";
+        } else {
+          $scope.letterState = "message";
+        }
       }).error(function(data) {
         $scope.message = "Failure"
       })
-      // Letter.create($scope.letter).success(function(data){
-      //   $scope.message = "success";
-      // })
-      $scope.letterState = "message";
+    }
+
+    $scope.go = function(where){
+      switch (where) {
+        case "home":
+          $scope.letterState = "compose";
+          break;
+        default:
+          $scope.letterState = "compose";
+      }
     }
 
   }
