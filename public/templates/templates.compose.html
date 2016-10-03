@@ -13,8 +13,10 @@
     <h3>Your Message</h3>
     <textarea ng-model="letter.message"></textarea>
 </div>
-<div class="wrapper">
-    <div class="button-wrapper" >
-        <button type="button" ng-click="confirm()">CONFIRM</button>
+<div ng-if="showConfirm">
+    <div class="wrapper">
+        <div class="button-wrapper" >
+            <button type="button" ng-click="confirm()">CONFIRM</button>
+        </div>
     </div>
 </div>

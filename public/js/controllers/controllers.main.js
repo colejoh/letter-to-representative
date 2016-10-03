@@ -1,9 +1,12 @@
-app.controller("mainCtrl", ['$scope', '$http', 'Letter',
+app.controller("mainCtrl", ['$scope', '$http',
   function($scope, $http, Letter) {
+    // Variables to hold response data and others
+    $scope.showConfirm = true;
     $scope.sendCall = {}
     $scope.letterState = "compose";
     $scope.letter = {};
     $scope.sendCall.letter = $scope.letter;
+    $scope.response;
 
     // Dummy Data
     $scope.letter.firstName = "Cole";
@@ -14,7 +17,11 @@ app.controller("mainCtrl", ['$scope', '$http', 'Letter',
     $scope.letter.message = "Hello good to meet you";
 
 
-
+    /*
+     * Hits Google's representative API to find which person represents the specific
+     * address. Another purpose of this method is to format the user's address to send
+     * to Lob
+     */
     $scope.confirm = function() {
       // Hits Google API
       $scope.googleResponse;
@@ -29,13 +36,12 @@ app.controller("mainCtrl", ['$scope', '$http', 'Letter',
       }).error(function(data) {
         $scope.message = "Failure";
       });
-
-      console.log($scope.googleResponse);
     };
 
 
-
-    $scope.response;
+    /*
+     * This sends the Google API response along with the letter data to reate a Lob request
+     */
     $scope.send = function() {
       $http.post('/api/letter', $scope.sendCall).success(function(data) {
         $scope.response = data;
@@ -49,6 +55,11 @@ app.controller("mainCtrl", ['$scope', '$http', 'Letter',
       })
     }
 
+
+    /*
+     * This will change the view depending on what is specified.
+     * @param where - string of view to change to
+     */
     $scope.go = function(where){
       switch (where) {
         case "home":

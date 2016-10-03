@@ -37,9 +37,7 @@ var letter = {
         }, function(err, res) {
             response.send(res);
         });
-
     }
-
 }
 
 module.exports = letter;
