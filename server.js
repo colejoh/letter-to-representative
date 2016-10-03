@@ -7,6 +7,7 @@ var config = require('./config.js');
 var lob = require('lob')(config.lobAPIKey);
 var request = require('request');
 var letter = require('./app/letter.js');
+var representative = require('./app/representative.js');
 
 
 app.use(express.static(__dirname + '/public'));
@@ -14,7 +15,8 @@ app.use(bodyParser.json());
 app.use(logger('dev'));
 
 
-app.post('/api/', letter.create);
+app.post('/api/representative', representative.create);
+app.post('/api/letter', letter.create);
 
 
 

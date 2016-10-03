@@ -1,25 +1,58 @@
-<div class="wrapper">
-    <h3>Your Information</h3>
-    <h4>
-        {{letter.firstName}}
-        {{letter.lastName}}
-    </h4>
-    <h4>
-        {{letter.lineOne}}
-    </h4>
-    <h4>
-        {{letter.lineTwo}}
-    </h4>
-    <h4>
-        {{letter.city}},
-        {{letter.state}}
-    </h4>
-    <h3>Your Message</h3>
-    {{letter.message}}
-</div>
-<div class="wrapper">
-    <div class="button-wrapper">
-        <button ng-click="go('home')">EDIT</button>
-        <button ng-click="send()">SEND</button>
+<div class="message-wrapper">
+    <img src="{{googleResponse.officials[0].photoUrl}}" height="200px" width="auto" class="rep-image"/>
+
+    <div class="message-body">
+        <h3>Hi {{letter.firstName}},</h3>
+        <p>
+            Meet your representative, {{googleResponse.officials[0].name}}.
+            {{googleResponse.officials[0].name}} is a member of {{googleResponse.offices[0].name}}.
+        </p>
+        <p>
+            Your letter will say:
+        </p>
+        <p class="message">
+            {{letter.message}}
+        </p>
+        <p>
+            This letter is going to
+            <h4>{{googleResponse.officials[0].address[0].line1}}</h4>
+            <h4>{{googleResponse.officials[0].address[0].line2}}</h4>
+            <h4>{{googleResponse.officials[0].address[0].city}}, {{googleResponse.officials[0].address[0].state}} {{googleResponse.officials[0].address[0].zip}}</h4>
+        </p>
+
+        <p>
+            And the letter is from
+            <h4>{{googleResponse.normalizedInput.line1}}</h4>
+            <h4>{{googleResponse.normalizedInput.line2}}</h4>
+            <h4>{{googleResponse.normalizedInput.city}}, {{googleResponse.normalizedInput.state}}, {{googleResponse.normalizedInput.zip}}</h4>
+        </p>
+
+        <p>
+            You can visit {{googleResponse.officials[0].name}}'s website at
+            <a href="{{googleResponse.website}}">{{googleResponse.officials[0].urls[0]}}</a>, or look at some of
+            their social profiles.
+        </p>
+        <div class="social-wrapper">
+            <div class="social" ng-repeat="social in googleResponse.officials[0].channels">
+                <span ng-if="social.type == 'Twitter'">
+                    <a href="http://twitter.com/{{social.id}}">
+                        <i class="fa fa-twitter fa-lg"></i>
+                    </a>
+                </span>
+                <span ng-if="social.type == 'Facebook'">
+                    <a href="http://facebook.com/{{social.id}}">
+                        <i class="fa fa-facebook-official fa-lg"></i>
+                    </a>
+                </span>
+                <span ng-if="social.type == 'YouTube'">
+                    <a href="http://youtube.com/channel/{{social.id}}">
+                        <i class="fa fa-youtube fa-lg"></i>
+                    </a>
+                </span>
+            </div>
+        </div>
+        <div class="button-wrapper" style="text-align: center;">
+            <button class="download-button" ng-click="send()">SEND THIS LETTER</button>
+        </div>
     </div>
 </div>

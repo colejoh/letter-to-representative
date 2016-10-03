@@ -1,7 +1,9 @@
 app.controller("mainCtrl", ['$scope', '$http', 'Letter',
   function($scope, $http, Letter) {
+    $scope.sendCall = {}
     $scope.letterState = "compose";
     $scope.letter = {};
+    $scope.sendCall.letter = $scope.letter;
 
     // Dummy Data
     $scope.letter.firstName = "Cole";
@@ -14,16 +16,28 @@ app.controller("mainCtrl", ['$scope', '$http', 'Letter',
 
 
     $scope.confirm = function() {
-      // $http.get('/api/').then(function(response){
-      //   console.log(response.data);
-      // });
-      $scope.letterState = "confirm";
-      console.log($scope.letter);
+      // Hits Google API
+      $scope.googleResponse;
+      $http.post('/api/representative', $scope.letter).success(function(data) {
+        $scope.googleResponse = data;
+        $scope.sendCall.googleResponse = data;
+        if($scope.googleResponse.name === "StatusCodeError") {
+          $scope.letterState = "error";
+        } else {
+          $scope.letterState = "confirm";
+        }
+      }).error(function(data) {
+        $scope.message = "Failure";
+      });
+
+      console.log($scope.googleResponse);
     };
+
+
 
     $scope.response;
     $scope.send = function() {
-      $http.post('/api/', $scope.letter).success(function(data) {
+      $http.post('/api/letter', $scope.sendCall).success(function(data) {
         $scope.response = data;
         if($scope.response.name === "StatusCodeError") {
           $scope.letterState = "error";
