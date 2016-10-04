@@ -10,8 +10,8 @@
     </div>
 </div>
 <div class="wrapper">
-    <h3>Your Message</h3>
-    <textarea ng-model="letter.message"></textarea>
+    <h3 id="your-message">Your Message</h3><span class="char-count" id="char-count">{{charCount}}</span>
+    <textarea ng-model="letter.message" ng-disabled="{{disabled}}"></textarea>
 </div>
 <div ng-if="showConfirm">
     <div class="wrapper">

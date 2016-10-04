@@ -1,5 +1,5 @@
 <div class="message-wrapper">
-    <img src="{{googleResponse.officials[0].photoUrl}}" height="200px" width="auto" class="rep-image"/>
+    <img src="{{googleResponse.officials[0].photoUrl}}" height="200px" width="auto" class="rep-image" style="border-radius: 2px"/>
 
     <div class="message-body">
         <h3>Hi {{letter.firstName}},</h3>
@@ -14,14 +14,14 @@
             {{letter.message}}
         </p>
         <p>
-            This letter is going to
+            <strong>TO:</strong>
             <h4>{{googleResponse.officials[0].address[0].line1}}</h4>
             <h4>{{googleResponse.officials[0].address[0].line2}}</h4>
             <h4>{{googleResponse.officials[0].address[0].city}}, {{googleResponse.officials[0].address[0].state}} {{googleResponse.officials[0].address[0].zip}}</h4>
         </p>
 
         <p>
-            And the letter is from
+            <strong>FROM:</strong>
             <h4>{{googleResponse.normalizedInput.line1}}</h4>
             <h4>{{googleResponse.normalizedInput.line2}}</h4>
             <h4>{{googleResponse.normalizedInput.city}}, {{googleResponse.normalizedInput.state}}, {{googleResponse.normalizedInput.zip}}</h4>
@@ -29,7 +29,7 @@
 
         <p>
             You can visit {{googleResponse.officials[0].name}}'s website at
-            <a href="{{googleResponse.website}}">{{googleResponse.officials[0].urls[0]}}</a>, or look at some of
+            <a href="{{googleResponse.officials[0].urls[0]}}">{{googleResponse.officials[0].urls[0]}}</a>, or look at some of
             their social profiles.
         </p>
         <div class="social-wrapper">

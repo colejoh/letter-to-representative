@@ -1,13 +1,31 @@
 var config = require('../config.js');
 var request = require('request-promise');
 var Lob = require('lob')(config.lobAPIKey);
+var fs = require('fs')
 
 var letter = {
     create: function(req, res) {
         var repAddress = req.body.googleResponse.officials[0].address[0];
         var userAddress = req.body.googleResponse.normalizedInput;
-        var userMessage = letter.message;
+        var userMessage = req.body.letter.message;
         var response = res;
+
+        // Splits message into parts since lob api can only take data of 500 characters
+        // This is such a hack, I know
+        var messageArr = userMessage.match(/.{1,499}/g);
+        var messageObj = {};
+        for(var i = 0; i < messageArr.length; i++) {
+            var str = "message_" + i;
+            messageObj[str] = messageArr[i];
+        }
+        //Fills remaining spots
+        for(var j = i; j < 20; j++) {
+            var str = "message_" + j;
+            messageObj[str] = "<div style='display:none'>.</div>";
+        }
+        console.log(messageObj);
+
+        var template = fs.readFileSync('./app/templates/templates.letter.html').toString();
 
         Lob.letters.create({
             description: 'Letter to Rep',
@@ -29,13 +47,17 @@ var letter = {
                 address_zip: userAddress.zip,
                 address_country: 'US',
             },
-            file: '<html style="padding-top: 3in; margin: .5in;">{{message}}</html>',
-            data: {
-                message: letter.message,
-            },
+            file: template,
+            data: messageObj,
             color: true
         }, function(err, res) {
-            response.send(res);
+            if(err != null) {
+                console.log(err);
+                response.send(err);
+            } else {
+                console.log(res);
+                response.send(res);
+            }
         });
     }
 }
