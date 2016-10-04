@@ -35,17 +35,17 @@
         <div class="social-wrapper">
             <div class="social" ng-repeat="social in googleResponse.officials[0].channels">
                 <span ng-if="social.type == 'Twitter'">
-                    <a href="http://twitter.com/{{social.id}}">
+                    <a href="http://twitter.com/{{social.id}}" target="_blank">
                         <i class="fa fa-twitter fa-lg"></i>
                     </a>
                 </span>
                 <span ng-if="social.type == 'Facebook'">
-                    <a href="http://facebook.com/{{social.id}}">
+                    <a href="http://facebook.com/{{social.id}}" target="_blank">
                         <i class="fa fa-facebook-official fa-lg"></i>
                     </a>
                 </span>
                 <span ng-if="social.type == 'YouTube'">
-                    <a href="http://youtube.com/channel/{{social.id}}">
+                    <a href="http://youtube.com/channel/{{social.id}}" target="_blank">
                         <i class="fa fa-youtube fa-lg"></i>
                     </a>
                 </span>
