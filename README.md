@@ -7,6 +7,7 @@ A website that uses the Lob API to send a letter to your representative.
 
 ## Installation
   1. `npm install`
+  2. Put your API keys in config.js
 
 ## Running
   1. `node server.js`
