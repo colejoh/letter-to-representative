@@ -1,5 +1,5 @@
 # letter-to-representative
-A service that uses the Lob API to send a letter to your representative.
+A website that uses the Lob API to send a letter to your representative.
 
 ## Requirements
   1. Node.js
@@ -7,7 +7,10 @@ A service that uses the Lob API to send a letter to your representative.
 
 ## Installation
   1. `npm install`
-  2. `node server.js`
+
+## Running
+  1. `node server.js`
+  2. Visit `localhost:8080`
 
 ## How it works
 ### The APIs
