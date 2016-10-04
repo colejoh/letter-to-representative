@@ -2,7 +2,8 @@
 A service that uses the Lob API to send a letter to your representative.
 
 ## Requirements
-  1. Node & NPM
+  1. Node.js
+  2. NPM
 
 ## Installation
   1. `npm install`
